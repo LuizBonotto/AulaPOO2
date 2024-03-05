@@ -26,7 +26,7 @@ public class Main {
         double novoSaldo = operacoes.realizaDeposito(contaCorrente, 500.0);
         System.out.println("Saldo após depósito: " + novoSaldo);
         // Realiza um saque
-        boolean saqueRealizado = operacoes.realizaSaque(contaCorrente, 1500.10);
+        boolean saqueRealizado = operacoes.realizaSaque(contaCorrente, 1500.0);
         if (saqueRealizado) {
             System.out.println("Saque realizado com sucesso. Saldo atual: " + contaCorrente.getSaldo());
         } else {
@@ -75,8 +75,42 @@ public class Main {
         formas3D.add(esfera);
 
         double volumeTotal = calcularVolumeTotal(formas3D);
+
         System.out.printf("O volume total das formas 3D é: %.2f\n", volumeTotal);
         System.out.println("fim!");
+
+        /*
+        Exercício Generics
+
+        Criar classes Conta Corrente e Poupanca
+        Atributos:
+        numeroConta (int): Número da conta bancária.
+        saldo (double): Saldo atual da conta bancária.
+
+        Métodos:
+        depositar(double valor): Adiciona o valor especificado ao saldo da conta.
+        sacar(double valor): Subtrai o valor especificado do saldo da conta (se houver saldo suficiente).
+
+
+        Cria uma outra classe GerenciadorContas, implemente o método transferir(T origem, T destino, double valor) que
+        transfere
+        um valor da conta de origem para a conta de destino,
+        verificando se há um saldo suficiente na conta de origem.
+         */
+
+        ContaBancaria cc1 = new ContaCorrente(1001);
+        ContaBancaria cp1 = new ContaPoupanca(2001);
+
+        cc1.depositar(1000);
+        cp1.depositar(500);
+        System.out.println("Exercicio contas");
+        System.out.println("Saldo CC: " + cc1.getSaldo());
+        System.out.println("Saldo CP: " + cp1.getSaldo());
+
+        GerenciadorContas.transferir(cc1, cp1, 300); // Transferir 300 da CC para CP
+
+        System.out.println("Saldo CC: " + cc1.getSaldo());
+        System.out.println("Saldo CP: " + cp1.getSaldo());
     }
 
     // Método para calcular a soma das áreas das formas, exercicio 2

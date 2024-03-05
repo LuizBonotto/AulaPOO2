@@ -1,7 +1,19 @@
-public class ContaCorrente {
+public class ContaCorrente extends ContaBancaria{
     private String agencia;
     private String conta;
-    private Double saldo;
+    private int numeroConta;
+
+    public ContaCorrente (int numeroConta) {
+        super(numeroConta);
+    }
+
+    public ContaCorrente() {
+        super();
+    }
+
+    public int getNumeroConta() { return numeroConta; }
+
+    public void setNumeroConta(int numeroConta) { this.numeroConta = numeroConta; }
 
     // getters e setters
     public String getAgencia() { return agencia; }
@@ -18,9 +30,4 @@ public class ContaCorrente {
         this.conta = conta;
     }
 
-    public Double getSaldo() { return saldo; }
-
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
-    }
 }
