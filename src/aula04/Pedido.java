@@ -5,18 +5,14 @@ import java.util.List;
 
 public class Pedido {
     List<Item> itens = new ArrayList<>();
-    double valorTotal = 0.0;
     public void adicionarItem(String nome, double preco) {
-        this.itens.add(new Item(nome,preco));
-        this.valorTotal += preco;
+        this.itens.add(new Item(nome, preco));
     }
-    public void imprimirRecibo() {
-        for (Item item : itens) {
-            System.out.println(item.nome + ": " + item.preco);
-        }
-        System.out.println("Total: " + valorTotal);
+    public double calcularValorTotal() {
+
     }
-    class Item {
+
+    class Item  {
         String nome;
         double preco;
         Item(String nome, double preco) {
